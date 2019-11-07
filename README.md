@@ -23,7 +23,7 @@ Desenvolvida com ReactJS, utilizando as seguintes tecnologias:
 - **react-icons**: utilização e ícones;
 - **react-router-dom**: roteamento;
 - **styled-components**: estilização de componentes;
-- **react-toastify**: pop-ups para tratamendo de requisições, validação de campos ou mesmo informar ao usuário que algo está acontecendo;
+- **react-toastify**: pop-ups para tratamendo de requisições, validação de campos ou mesmo informar ao usuário que algo está acontecendo; **[PLUS]**
 
 ## :rocket: O desafio
 
