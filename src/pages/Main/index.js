@@ -6,11 +6,12 @@ import { toast } from 'react-toastify';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
-import { Form, SubmitButton, List } from './styles';
+import { Form, SubmitButton, List, Input } from './styles';
 
 export default class Main extends Component {
   state = {
     newRepo: '',
+    newRepoIsValid: true,
     repositories: [],
     loading: false,
   };
@@ -34,20 +35,24 @@ export default class Main extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ newRepo: e.target.value });
+    this.setState({ newRepo: e.target.value, newRepoIsValid: true });
   };
 
   handleSubmit = async e => {
     e.preventDefault();
 
-    const { newRepo, repositories } = this.state;
-
-    if (!newRepo) {
-      toast.warn('Informe o repositório');
-      return;
-    }
-
     try {
+      const { newRepo, repositories } = this.state;
+      const repoExists = repositories.find(repo => repo.name === newRepo);
+
+      if (!newRepo) {
+        this.setState({ newRepoIsValid: false });
+        toast.warn('Informe o repositório');
+        return;
+      }
+
+      if (repoExists) throw new Error('Repositório duplicado');
+
       this.setState({ loading: true });
 
       const { data } = await api.get(`/repos/${newRepo}`);
@@ -60,12 +65,18 @@ export default class Main extends Component {
         repositories: [...repositories, repo],
         newRepo: '',
         loading: false,
+        newRepoIsValid: true,
       });
     } catch (error) {
-      this.setState({ loading: false });
+      this.setState({ loading: false, newRepoIsValid: false });
+
+      if (!error.request && error.message) {
+        toast.error(error.message);
+        return;
+      }
 
       if (error.request.status === 404) {
-        toast.info('Repositório não encontrado.');
+        toast.error('Repositório não encontrado.');
         return;
       }
 
@@ -76,7 +87,7 @@ export default class Main extends Component {
   };
 
   render() {
-    const { newRepo, loading, repositories } = this.state;
+    const { newRepo, loading, repositories, newRepoIsValid } = this.state;
 
     return (
       <Container>
@@ -86,10 +97,11 @@ export default class Main extends Component {
         </h1>
 
         <Form onSubmit={this.handleSubmit}>
-          <input
+          <Input
             type="text"
             placeholder="Adicionar repositório"
             value={newRepo}
+            valid={newRepoIsValid}
             onChange={this.handleInputChange}
           />
 

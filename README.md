@@ -24,6 +24,7 @@ Desenvolvida com ReactJS, utilizando as seguintes tecnologias:
 - **react-router-dom**: roteamento;
 - **styled-components**: estilização de componentes;
 - **react-toastify**: pop-ups para tratamendo de requisições, validação de campos ou mesmo informar ao usuário que algo está acontecendo; **[PLUS]**
+- **localStorage**: armazenamento de dados no client;
 
 ## :rocket: O desafio
 
@@ -33,11 +34,11 @@ Adicionar novas funcionalidades na aplicação desenvolvida ao longo do módulo.
 
 #### 1. Captando erros
 
-- [ ] Adicione um `try/catch` por volta do código presente na função `handleSubmit` presente no componente `Main` e caso um repositório não seja encontrado na API do Github adicione uma borda vermelha por volta do input em que o usuário digitou o nome do repositório.
+- [x] Adicione um `try/catch` por volta do código presente na função `handleSubmit` presente no componente `Main` e caso um repositório não seja encontrado na API do Github adicione uma borda vermelha por volta do input em que o usuário digitou o nome do repositório.
 
 #### 2. Repositório duplicado
 
-- [ ] Antes de fazer a chamada à API na função `handleSubmit` faça uma verificação para ver se o repositório não está duplicado, ou seja, se ele ainda não existe no estado de `repositories`.
+- [x] Antes de fazer a chamada à API na função `handleSubmit` faça uma verificação para ver se o repositório não está duplicado, ou seja, se ele ainda não existe no estado de `repositories`.
 
 Caso exista, dispare um erro, e com isso o código cairá no `catch` do `try/catch` criado na funcionalidade anterior.
 
