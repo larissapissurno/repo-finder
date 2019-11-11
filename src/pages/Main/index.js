@@ -6,7 +6,8 @@ import { toast } from 'react-toastify';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
-import { Form, SubmitButton, List, Input } from './styles';
+import Button from '../../components/Button';
+import { Form, List, Input } from './styles';
 
 export default class Main extends Component {
   state = {
@@ -105,13 +106,13 @@ export default class Main extends Component {
             onChange={this.handleInputChange}
           />
 
-          <SubmitButton loading={loading ? 1 : 0}>
+          <Button loading={loading ? 1 : 0}>
             {loading ? (
               <FaSpinner color="#fff" size={14} />
             ) : (
               <FaPlus color="#fff" size={14} />
             )}
-          </SubmitButton>
+          </Button>
         </Form>
 
         <List>

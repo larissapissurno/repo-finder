@@ -40,6 +40,15 @@ export const Owner = styled.div`
     text-align: center;
     max-width: 400px;
   }
+
+  select {
+    margin-top: 20px;
+    flex: 1;
+    border: 1px solid #eee;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+  }
 `;
 
 export const IssueList = styled.ul`
@@ -99,5 +108,18 @@ export const IssueList = styled.ul`
         color: #999;
       }
     }
+  }
+`;
+
+export const ListFooter = styled.div`
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: center;
+
+  button {
+    padding: 10px 15px;
   }
 `;
