@@ -48,7 +48,7 @@ throw new Error('Repositório duplicado');
 
 #### 3. Filtro de estado
 
-- [ ] Adicione um filtro de estado na listagem de Issues que criamos no detalhe do repositório. O estado representa se a issue está em aberto, fechada ou uma opção para exibir todas.
+- [x] Adicione um filtro de estado na listagem de Issues que criamos no detalhe do repositório. O estado representa se a issue está em aberto, fechada ou uma opção para exibir todas.
 
 Exemplos de requisição:
 
@@ -62,7 +62,7 @@ Você pode encontrar a documentação [nesse link](https://developer.github.com/
 
 #### 4. Paginação
 
-- [ ] Adicione paginação nas issues listadas no detalhe do repositório. A API do Github lista no máximo 30 issues por página e você pode controlar o número da página atual por um parâmetro no endereço da requisição:
+- [x] Adicione paginação nas issues listadas no detalhe do repositório. A API do Github lista no máximo 30 issues por página e você pode controlar o número da página atual por um parâmetro no endereço da requisição:
 
 ```
 https://api.github.com/repos/rocketseat/unform/issues?page=2
